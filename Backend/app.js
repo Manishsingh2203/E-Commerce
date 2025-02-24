@@ -188,9 +188,7 @@ app.use(productApi);
 app.use(paymentRoutes);
 
 
-const port = 10000;
-
-app.listen(port, () => {
+app.listen(`${process.env.PORT}` || 8000, () => {
   console.log(`server running at port ${port}`);
 });
 
