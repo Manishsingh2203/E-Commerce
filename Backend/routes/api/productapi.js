@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 let {isLoggedIn} = require('../../middleware')
-const User = require('../../models/User');
+const User = require('../../models/user');
 
 router.post('/product/:productId/like' , isLoggedIn , async(req,res)=>{
     let {productId} = req.params;
