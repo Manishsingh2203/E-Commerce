@@ -1,0 +1,208 @@
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color:white"> 
+  <div class="container">
+    <div>
+       <a href="/products "> 
+        <img style="height: 55px; border-radius: 8px; margin-left: -110px; width: 150px; object-fit: cover; " 
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdqfrtvanWDhhAhe07PgTLwQDe2fiAohmyp1GKuVJbzC0wZr6zBDgQv5ZIYnmpfeBpqYI&usqp=CAU" alt="M-Mart Logo"> 
+       </a>
+        
+       
+            
+     
+    </div>
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+            aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="/" style="color:black ;">Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/products" style="color: black ">Products
+          </a>
+        </li>
+        <% if(currentUser && currentUser.role==='seller') { %>
+          <li class="nav-item">
+            <a class="nav-link" href="/products/new"style="color: black ">
+              New
+            </a>
+          </li>
+        <% } %>
+        
+      
+      </ul>
+
+
+
+
+
+<form action="/search" method="GET" class="search-bar d-flex align-items-center">
+  <input
+    name="query"
+    class="form-control"
+    type="search"
+    placeholder="Search for products, brands and more"
+    required
+  />
+  <button class="btn-search" type="submit">
+    <i  class="fa-solid fa-magnifying-glass"></i>
+  </button>
+</form>
+
+
+
+      <div class="navbar-nav ml-auto d-flex align-items-center">
+        <% if(!currentUser) { %>
+          <a href="/login" class="nav-link" style="color: black ">
+            <i class="fas fa-sign-in-alt" style="margin-right: 8px;"></i>Login
+          </a>
+        <% } else { %>
+          
+          <a href="/products" class="nav-link text-capitalize" style="color: black ">
+            <i class="fas fa-user-circle" style="margin-right: 8px;"></i>Hello, <%=currentUser.username%>
+          </a>
+
+
+        <a href="/user/cart" class="nav-link position-relative d-flex align-items-center" style="font-size: 1.1rem; color: black;">
+          <i class="fas fa-shopping-cart fs-5" style="margin-right: 8px; color: #ff3f6c; "></i>
+          <span><%= currentUser.cart.length %></span>
+          <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning text-dark px-2"></span>
+          <span class="ms-1 ">Cart</span>
+        </a>
+  
+          <a href="/logout" class="nav-link" style="color: black ;  margin-right: -90px;">
+            <i class="fas fa-sign-out-alt" style="margin-right: 8px;"></i>Logout
+          </a>  
+        <% } %>
+      </div>
+    </div>
+  </div>
+</nav>
+
+ <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://m.media-amazon.com/images/G/31/img24/Fashion/AF/BAU/Winterflip/Unrec/herotator/Pc/Womens_apparel_1500x400._CB544017564_.jpg"
+           class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://m.media-amazon.com/images/G/31/img21/Jewellery/2024/SS_24/Cat_page/FJ/Headers/Top_hero_PC-7._SX3000_QL85_.jpg"
+           class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://m.media-amazon.com/images/G/31/img24/Fashion/AF/BAU/Winterflip/Unrec/herotator/Pc/Apparel_1500x400._CB544017564_.jpg"
+           class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://m.media-amazon.com/images/G/31/img24/Fashion/AF/BAU/Winterflip/Unrec/herotator/Pc/Shoes_1500x400._CB544017564_.jpg"
+           class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://m.media-amazon.com/images/G/31/img24/Fashion/AF/BAU/Winterflip/Unrec/herotator/Pc/SPB_1500x400._CB544017564_.jpg"
+           class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://m.media-amazon.com/images/G/31/img24/Fashion/AF/BAU/Winterflip/Unrec/herotator/Pc/Watches_1500x400._CB544017564_.jpg"
+           class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://m.media-amazon.com/images/G/31/img24/Fashion/AF/BAU/Winterflip/Unrec/herotator/Pc/Jewellery_1500x400._CB544017564_.jpg"
+           class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img21/MA2025/GW/UBS/March/Unrec/Holi/PC/pc_2._CB549343394_.jpg"
+           class="d-block w-100" alt="...">
+    </div>
+   
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<style> 
+  .nav-link:hover {
+    color: #f26a10 !important 
+  }
+
+  .navbar-nav .nav-link {
+    margin-right: 20px; 
+  }
+
+  .form-control::placeholder {
+  color: #7d7d7d;
+  font-size: 14px; 
+}
+
+  .form-control {
+  flex-grow: 1; 
+  border: none;
+  background: transparent; 
+  font-size: 14px; 
+  outline: none;
+  color: #333;
+}
+.btn-search {
+background-color: #ff3e6c;
+ color: white;
+  border: none ;
+  padding: 0 15px; 
+  height: 100%; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.btn-search i {
+  font-size: 16px; 
+}
+
+.btn-search i {
+  background: transparent; 
+  color: white; 
+  font-size: 16px;
+  
+}
+
+.search-bar {
+  margin-right: 60px;
+  width: 550px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  border-radius: 10px; 
+  background: #f5f5f5; 
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
+  overflow: hidden; 
+ border: 1px solid #ff3e6c; 
+  transition: box-shadow 0.3s ease, border 0.3s ease; 
+
+}
+.search-icon {
+  color: #7d7d7d; 
+  font-size: 16px; 
+  margin-right: 10px; 
+}
+.search-bar:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-color: #d6d6d6; 
+}
+</style>
+
+
+
+

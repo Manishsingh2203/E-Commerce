@@ -1,0 +1,183 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta name="description" content="Find solutions to your queries in the SnapBuy Help Center.">
+     <title>Help Center | SnapBuy</title>
+
+     <nav style="background-color: white;" class="navbar navbar-expand-lg ">
+        <div class="container-fluid">
+ <!-- Navbar Toggle Button (for Mobile) -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <!-- Navbar Items (Collapsible) -->
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+                <!-- Left Empty Space for Center Alignment -->
+                <div class="flex-grow-1"></div>
+                
+                <!-- Right-Aligned Logo -->
+                <a class="navbar-brand ms-auto" href="/products">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdqfrtvanWDhhAhe07PgTLwQDe2fiAohmyp1GKuVJbzC0wZr6zBDgQv5ZIYnmpfeBpqYI&usqp=CAU" 
+                         alt="Logo" class="d-inline-block align-text-top rounded" 
+                         style="width: 150px; height: 52px; object-fit: cover; margin-left: -1462px;  margin-top: -8px; ">
+                </a>
+            </div>
+        </div>
+    </nav>
+ 
+    <header>
+        <h1>Help Center 👩‍💻</h1>
+    </header>
+     <div class="help-container">
+        
+    
+         <!-- Help Categories -->
+         <div class="help-section" id="account">
+           
+             <h2>📝 Managing Your Account</h2>
+             <ul>
+                 <li onclick="showDescription('reset-password', 'account')">🔑 How to reset your password</li>
+                 <li onclick="showDescription('update-contact', 'account')">📧 Update email or phone number</li>
+                 <li onclick="showDescription('close-account', 'account')">🚪 Close your account</li>
+             </ul>
+             <div class="help-description" id="account-description"></div>
+         </div>
+ 
+         <div class="help-section" id="orders">
+             <h2>📦 Orders & Returns</h2>
+             <ul>
+                 <li onclick="showDescription('track-order', 'orders')">🚚 Track your order</li>
+                 <li onclick="showDescription('return-item', 'orders')">🔄 Return or exchange an item</li>
+                 <li onclick="showDescription('cancel-order', 'orders')">❌ Cancel an order</li>
+             </ul>
+             <div class="help-description" id="orders-description"></div>
+         </div>
+ 
+         <div class="help-section" id="payments">
+             <h2>💳 Payments & Billing</h2>
+             <ul>
+                 <li onclick="showDescription('update-payment', 'payments')">💰 Update your payment method</li>
+                 <li onclick="showDescription('view-invoices', 'payments')">🧾 View your invoices</li>
+                 <li onclick="showDescription('resolve-billing', 'payments')">⚠️ Resolve a billing issue</li>
+             </ul>
+             <div class="help-description" id="payments-description"></div>
+         </div>
+ 
+         <div class="help-section" id="shipping">
+             <h2>🚛 Shipping & Delivery</h2>
+             <ul>
+                 <li onclick="showDescription('delivery-time', 'shipping')">⏳ Check estimated delivery time</li>
+                 <li onclick="showDescription('change-address', 'shipping')">🏠 Change your shipping address</li>
+                 <li onclick="showDescription('missing-package', 'shipping')">📦 Report a missing package</li>
+             </ul>
+             <div class="help-description" id="shipping-description"></div>
+         </div>
+     </div>
+     <%- layout('layouts/boilerplate') -%>
+     <script>
+         const descriptions = {
+             'reset-password': 'Follow these steps to reset your password: Go to the login page, click on "Forgot Password," and follow the prompts to reset your password securely.',
+             'update-contact': 'You can update your email or phone number in the "Account Settings" section. Ensure that the details are accurate and up-to-date.',
+             'close-account': 'To close your account, visit the "Account Settings" page and follow the steps to permanently delete your account. This action cannot be undone.',
+             'track-order': 'You can track your order in the "My Orders" section by entering your order ID.',
+             'return-item': 'To return or exchange an item, go to the "My Orders" section, select the item, and follow the return instructions.',
+             'cancel-order': 'You can cancel an order before it is shipped. Visit the "My Orders" section and select "Cancel Order."',
+             'update-payment': 'Update your payment method by navigating to the "Payments" section in "Account Settings."',
+             'view-invoices': 'View your invoices under the "Payments" section. You can also download them for future reference.',
+             'resolve-billing': 'Resolve billing issues by contacting our support team via the "Contact Us" page.',
+             'delivery-time': 'Check the estimated delivery time for your orders in the "My Orders" section.',
+             'change-address': 'Change your shipping address in the "My Account" section before your order is shipped.',
+             'missing-package': 'If your package is missing, please report it in the "My Orders" section or contact customer support.'
+         };
+ 
+         function showDescription(descriptionId, sectionId) {
+             // Hide all active descriptions in the same section
+             const sectionDescription = document.querySelector(`#${sectionId} .help-description`);
+             sectionDescription.classList.remove('active');
+ 
+             // Set the new description and make it visible
+             sectionDescription.innerText = descriptions[descriptionId];
+             sectionDescription.classList.add('active');
+         }
+     </script>
+ </body>
+ </html>
+ 
+ <style>
+    /* General Styles */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f3f3f3;
+    }
+
+    header {
+      
+        color: crimson;
+        padding: 15px; 
+        text-align: center;
+        font-size: 24px;
+        margin-top: -30px;
+        height: 80px;
+        width: 100%;
+
+    }
+
+    .help-container {
+        max-width: 900px;
+        margin: 30px auto;
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .help-section {
+        margin-bottom: 20px;
+        position: relative;
+    }
+
+    .help-section h2 {
+        font-size: 18px;
+        color: #333;
+        border-bottom: 2px solid #2874f0;
+        padding-bottom: 5px;
+    }
+
+    .help-section ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .help-section ul li {
+        padding: 10px 0;
+        cursor: pointer;
+        color: #0066c0;
+        font-size: 16px;
+        border-bottom: 1px solid #f3f3f3;
+    }
+
+    .help-section ul li:hover {
+        text-decoration: underline;
+        color: #004ba0;
+    }
+
+    .help-description {
+        display: none;
+        margin-top: 10px;
+        padding: 10px;
+        background: #f9f9f9;
+        border-left: 4px solid #2874f0;
+        font-size: 14px;
+        color: #555;
+        border-radius: 4px;
+    }
+
+    .help-description.active {
+        display: block;
+    }
+</style>

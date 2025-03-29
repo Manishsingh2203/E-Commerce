@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Press Releases | SnapBuy</title>
+    <nav style="background-color: white;" class="navbar navbar-expand-lg ">
+        <div class="container-fluid">
+       <!-- Navbar Toggle Button (for Mobile) -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <!-- Navbar Items (Collapsible) -->
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+                <!-- Left Empty Space for Center Alignment -->
+                <div class="flex-grow-1"></div>
+                
+                <!-- Right-Aligned Logo -->
+                <a class="navbar-brand ms-auto" href="/products">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdqfrtvanWDhhAhe07PgTLwQDe2fiAohmyp1GKuVJbzC0wZr6zBDgQv5ZIYnmpfeBpqYI&usqp=CAU" 
+                         alt="Logo" class="d-inline-block align-text-top rounded" 
+                         style="width: 150px; height: 55px; object-fit: cover; margin-left: -1462px; ">
+                </a>
+            </div>
+        </div>
+    </nav>
+    <%- layout('layouts/boilerplate') -%>
+    <% include('partials/navbar.ejs') %>
+
+    <section style="margin-top: -50px;" class="container">
+        <h1>Latest Press Releases</h1>
+        <div class="press-release-list">
+            <div class="press-release-item">
+                <a href="#">🚀 SnapBuy Unveils New Collection - March 2025</a>
+                <p>Explore the latest trendy collections now available on SnapBuy.</p>
+            </div>
+            <div class="press-release-item">
+                <a href="#">🔥 Mega Discount Offers for Summer - February 2025</a>
+                <p>Enjoy amazing discounts and special deals this season.</p>
+            </div>
+            <div class="press-release-item">
+                <a href="#">📦 SnapBuy Expands Same-Day Delivery - January 2025</a>
+                <p>Get your orders faster than ever with our new express delivery services.</p>
+            </div>
+        </div>
+    </section>
+
+    <% include('partials/footer.ejs') %>
+</body>
+</html>
+
+
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f3f6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 20px;
+           /* background: #fff; */
+            border-radius: 8px;
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #212121;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .press-release-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .press-release-item {
+            background: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease-in-out;
+        }
+        .press-release-item:hover {
+            transform: scale(1.02);
+        }
+        .press-release-item a {
+            text-decoration: none;
+            font-size: 18px;
+            color: #2874f0;
+            font-weight: 600;
+        }
+        .press-release-item p {
+            font-size: 14px;
+            color: #757575;
+            margin-top: 5px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding: 15px;
+            }
+        }
+  

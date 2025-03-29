@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Returns & Replacements</title>
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <nav style="background-color: white;" class="navbar navbar-expand-lg ">
+        <div class="container-fluid">
+              <!-- Navbar Toggle Button (for Mobile) -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <!-- Navbar Items (Collapsible) -->
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+                <!-- Left Empty Space for Center Alignment -->
+                <div class="flex-grow-1"></div>
+                
+                <!-- Right-Aligned Logo -->
+                <a class="navbar-brand ms-auto" href="/products">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdqfrtvanWDhhAhe07PgTLwQDe2fiAohmyp1GKuVJbzC0wZr6zBDgQv5ZIYnmpfeBpqYI&usqp=CAU" 
+                         alt="Logo" class="d-inline-block align-text-top rounded" 
+                         style="width: 150px; height: 55px; object-fit: cover; margin-left: -1462px; ">
+                </a>
+            </div>
+        </div>
+    </nav>
+    
+    <%- layout('layouts/boilerplate') -%>
+  
+    <div class="container">
+        <h1>Returns & Replacements</h1>
+
+        <div class="section">
+            <h2>Return Policy</h2>
+            <p>Most items can be returned within 30 days of receipt for a full refund. Items must be in original condition with packaging intact.</p>
+        </div>
+
+        <div class="section">
+            <h2>Replacement Process</h2>
+            <p>If you receive a defective or damaged product, you can request a replacement within 10 days of delivery.</p>
+        </div>
+
+        <div class="faq">
+            <h3>Frequently Asked Questions</h3>
+            <p><strong>Q: How do I return a product?</strong></p>
+            <p>A: Go to your orders, select the item, and choose the return option.</p>
+            <p><strong>Q: When will I get my refund?</strong></p>
+            <p>A: Refunds are processed within 5-7 business days after we receive your return.</p>
+        </div>
+
+        <div class="contact">
+            <a href="/customer-service">Contact Customer Support</a>
+        </div>
+    </div>
+</body>
+</html>
+
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+    }
+    .container {
+        max-width: 1200px;
+        
+        margin: auto;
+        padding: 20px;
+       /* background: white;*/
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        
+    }
+    h1 {
+        color: #333;
+        font-size: 24px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #e47911;
+    }
+    .section {
+        margin-top: 20px;
+    }
+    .section h2 {
+        font-size: 20px;
+        color: #333;
+    }
+    .section p {
+        font-size: 16px;
+        color: #666;
+        line-height: 1.6;
+    }
+    .faq {
+        margin-top: 20px;
+    }
+    .faq h3 {
+        font-size: 18px;
+        color: #e47911;
+    }
+    .faq p {
+        font-size: 16px;
+        color: #444;
+    }
+    .contact {
+        text-align: center;
+        margin-top: 30px;
+    }
+    .contact a {
+        display: inline-block;
+        background: #e47911;
+        color: white;
+        padding: 12px 20px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-size: 16px;
+    }
+    .contact a:hover {
+        background: #d26910;
+    }
+</style>

@@ -1,0 +1,79 @@
+
+<%- include('../partials/navbar') %>
+<% layout('layouts/boilerplate') -%>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-lg border-0 rounded-4 p-4">
+                <div class="card-body">
+                    <h3 class="text-center text-primary mb-4">Add New Product</h3>
+                    
+                    <form action="/products" method="POST" class="needs-validation" novalidate>
+                        <!-- Product Name -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold" for="name">Product Name</label>
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="name" id="name" placeholder="Enter product name" required>
+                            <div class="valid-feedback">Looks good!</div>
+                        </div>
+
+                        <!-- Image URL -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold" for="img">Image URL</label>
+                            <input style="border: 1px solid black;" class="form-control" type="url" name="img" id="img" placeholder="Enter product image URL" required>
+                            <div class="valid-feedback">Looks good!</div>
+                        </div>
+
+                        <!-- Price -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold" for="price">Price</label>
+                            <div class="input-group">
+                                <span class="input-group-text">₹</span>
+                                <input style="border: 0.5px solid black;" type="number" name="price" class="form-control" placeholder="Enter price" required id="price">
+                                <div class="valid-feedback">Looks good!</div>
+                            </div>
+                        </div>
+
+                        <!-- Description -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold" for="desc">Description</label>
+                            <textarea style="border: 1px solid black; justify-content: center; " class="form-control" name="desc" id="desc" rows="4" placeholder="Enter product description" required></textarea>
+                            <div class="valid-feedback">Looks good!</div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg shadow-sm">Add Product</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    body {
+        background-color: #f8f9fa; 
+       
+    }
+    .card {
+        background: #fff;
+        border-radius: 12px;
+        margin-top: -100px;
+        width: 50vw;
+        margin-left: 100px;
+    }
+    .btn-primary {
+        background: linear-gradient(45deg, #007bff, #6610f2);
+        border: none;
+    }
+    .btn-primary:hover {
+        background: linear-gradient(45deg, #0056b3, #4c0c9c);
+    }
+   
+    input{
+        border: 2px solid black;
+    }
+</style>

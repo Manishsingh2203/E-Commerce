@@ -1,0 +1,296 @@
+ <%- include('../partials/navbar') %>
+    <% layout('layouts/boilerplate') -%>
+
+         <!-- Sale Banner -->
+         <div class="sale-banner-container">
+            <div class="sale-banner-slider">
+                <div class="banner-item">🔥 Limited Time Offer! Get Up to 50% OFF on Select Items! 🔥</div>
+                <div class="banner-item">🚀 Fast & Free Delivery on Orders Over Rs.999! 🚀</div>
+                <div class="banner-item">💳 Easy EMI Options Available on Electronics! 💳</div>
+                <div class="banner-item">🛒 Buy More, Save More - Exclusive Combo Deals! 🛒</div>
+                <div class="banner-item">🎧 Latest Gadgets & Accessories at Unbeatable Prices! 🎧</div>
+                <div class="banner-item">💰 Bank Offers: Extra 10% Off with Partner Credit Cards! 💰</div>
+                 <div class="banner-item">🆕 New Arrivals – Shop the Latest Trends Before Anyone Else! 🆕</div>
+
+            </div>
+        </div>
+        <header>
+         
+            <div class="banner-slider">
+                <div class="banner-slide">
+                    <div class="banner-content">
+                        <h1>Discover Our Latest Collection</h1>
+                        <p>Find the best deals on top-quality products</p>
+                        <a href="/products" class="btn banner-btn">Shop Now</a>
+                    </div>
+                </div>
+        
+                <div class="banner-slide">
+                    <div class="banner-content">
+                        <h1>Exclusive Discounts for Members!</h1>
+                        <p>Sign up & get an extra 15% OFF</p>
+                        <a href="/signup" class="btn banner-btn">Join Now</a>
+                    </div>
+                </div>
+        
+                <div class="banner-slide">
+                    <div class="banner-content">
+                        <h1>Fast & Free Delivery</h1>
+                        <p>On all orders above Rs.999</p>
+                        <a href="/products" class="btn banner-btn">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+   
+<section class="container">
+        <%- include('../partials/flash') %> 
+     <div class="products">
+            <% for(let product of products) { %>
+                <div class="card">
+                    <% if(product.price <= 959 || product.price > 2599) { %>
+                        <div class="sale-tag">Sale</div>
+                    <% } %>
+    
+                    <img style="height: 350px; width: 100%;" src="<%= product.img %>" alt="item image">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <span><%= product.name %></span>
+                            <button class="like-btn" product-id="<%= product._id %>">
+                                <% if(currentUser && currentUser.wishList.includes(product._id)) { %>
+                                    <i class="fas fa-heart"></i>
+                                <% } else { %>
+                                    <i class="far fa-heart"></i>
+                                <% } %>
+                            </button>
+                        </h5>
+                        
+                        <p class="card-text"><%= product.desc %></p>
+    
+                        <% if(product.reviews.length) { %>
+                            <p class="text-muted"><%= product.avgRating %> ★ | <%= product.reviews.length %> <span class="best-color">reviews</span></p>
+                        <% } else { %>
+                            <p class="text-muted">No reviews</p>
+                        <% } %>
+    
+                        <p class="price">
+                            <% if(product.price <= 959) { %> 
+                                <span class="discount">(10% OFF)</span>
+                                <span class="original-price">Rs.<%= Math.round(product.price / 0.9).toString().replace(/\d(?=(\d{3})+\b)/g, '$&,') %></span>
+                            <% } %>
+                            
+                            <% if(product.price > 2599) { %> 
+                                <span class="discount">(50% OFF)</span>
+                                <span class="original-price">Rs.<%= Math.round(product.price * 2).toString().replace(/\d(?=(\d{3})+\b)/g, '$&,') %></span>
+                            <% } %>
+    
+                            &nbsp; Rs.<%= Math.round(product.price).toString().replace(/\d(?=(\d{3})+\b)/g, '$&,') %>
+                        </p>
+    
+                        <a style="color: white;" href="/products/<%= product._id %>" class="btn gold-button show-btn">Quick Look</a>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    </section>
+    
+
+    <a style="margin-left: 700px;  margin-bottom: 10px; background-color: #0d6efd; border-color: white; " href="products/show" class="btn btn-primary">Back to Home</a>
+
+    <style>
+        .banner-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px; 
+            margin: 20px auto;
+            width: 100%;
+            max-width: 1200px;
+        }
+        
+        
+        .side-banner {
+            width: 15%;
+        }
+        
+        .side-banner img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        
+        /* Center Banner */
+        .banner-slider {
+            position: relative;
+            width: 100%;
+            height: 280px;
+            overflow: hidden;
+            margin-top: 60px;
+           
+        }
+        
+        .banner-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+           
+        }
+        
+        .banner-slide:nth-child(1) {
+            background-image: url("https://m.media-amazon.com/images/G/31/img21/Wireless/First_Banner_PC_1500x300.jpg");
+        }
+        
+        .banner-slide:nth-child(2) {
+            background-image: url("https://m.media-amazon.com/images/G/31/img21/Wireless/Mid_Banner_PC_1500x300.jpg");
+        }
+        
+        .banner-slide:nth-child(3) {
+            background-image: url("https://m.media-amazon.com/images/G/31/img21/Wireless/Last_Banner_PC_1500x300.jpg");
+        }
+        
+        .banner-content {
+            background-color: rgba(86, 17, 61, 0.8) ;
+            padding: 15px 25px;
+            border-radius: 8px;
+        }
+
+        header{
+           
+            background-image: url("https://images-static.nykaa.com/uploads/f22ae053-3404-4de5-a079-956a9c38c6e8.jpeg?tr=cm-pad_resize,w-1800");
+           
+            height: 250px;
+            margin-top: -100px;
+        }
+        
+        .banner-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background: #ff9900;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+        
+        .banner-btn:hover {
+            background: #ff6600;
+        }
+        
+        
+        @media (max-width: 1024px) {
+            .banner-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+        
+            .side-banner {
+                display: none; 
+            }
+        
+            .banner-slider {
+                width: 100%;
+            }
+        }
+
+        .side-banner {
+    width: 15%;
+    display: block;
+}
+
+.side-banner img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+
+@media (max-width: 1024px) {
+    .side-banner {
+        display: none; 
+    }
+}
+
+
+.sale-banner-container {
+    width: 100%;
+    background: #ffcc00;
+    padding: 10px 0;
+    overflow: hidden;
+    position: relative;
+    margin-top: -69px;
+    
+}
+
+.sale-banner-slider {
+    display: flex;
+    white-space: nowrap;
+    animation: slide 15s linear infinite; 
+}
+
+.banner-item {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+
+
+
+@keyframes slide {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+.like-btn i {
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.fas.fa-heart {
+    color: red;
+}
+
+.far.fa-heart {
+    color: black;
+}
+  </style>
+        
+        <!-- ✅ JavaScript for Auto-Sliding Banner -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                let currentSlide = 0;
+                const slides = document.querySelectorAll(".banner-slide");
+        
+                function showSlide(index) {
+                    slides.forEach((slide, i) => {
+                        slide.style.opacity = i === index ? "1" : "0";
+                    });
+                }
+        
+                // Show the first slide immediately when the page loads
+                showSlide(currentSlide);
+        
+                setInterval(() => {
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    showSlide(currentSlide);
+                }, 3000); // Changes banner every 3 seconds
+            });
+
+
+        </script>
+        <script src="/js/common.js"></script>

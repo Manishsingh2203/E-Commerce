@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Edit Account</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <nav style="background-color: white;" class="navbar navbar-expand-lg ">
+        <div class="container-fluid">
+                 <!-- Navbar Toggle Button (for Mobile) -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <!-- Navbar Items (Collapsible) -->
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+                <!-- Left Empty Space for Center Alignment -->
+                <div class="flex-grow-1"></div>
+                
+                <!-- Right-Aligned Logo -->
+                <a class="navbar-brand ms-auto" href="/products">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdqfrtvanWDhhAhe07PgTLwQDe2fiAohmyp1GKuVJbzC0wZr6zBDgQv5ZIYnmpfeBpqYI&usqp=CAU" 
+                         alt="Logo" class="d-inline-block align-text-top rounded" 
+                         style="width: 150px; height: 55px; object-fit: cover; margin-left: -1462px; ">
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="account-container">
+        <h1>Edit Your Account</h1>
+
+        <form action="/update-account" method="POST">
+            <label>Username:</label>
+            <input type="text" name="username" value="<%= user.username %>" required>
+
+            <label>Email:</label>
+            <input type="email" name="email" value="<%= user.email %>" required>
+
+            <label>Phone:</label>
+            <input type="text" name="phone" value="<%= user.phone %>" required>
+
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+        </form>
+
+        <a href="/your-account" class="btn btn-secondary">Cancel</a>
+    </div>
+    <% layout('layouts/boilerplate') -%>
+    <%- include('partials/footer.ejs') %>
+</body>
+</html>
+
+
+<style>
+    
+    .account-container {
+        max-width: 500px;
+        margin: 50px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: center;
+    }
+
+    .account-container h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    /* Form Styling */
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    label {
+        text-align: left;
+        font-weight: bold;
+        font-size: 14px;
+        color: #555;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    input:focus {
+        border-color: #0073e6;
+        outline: none;
+    }
+
+    /* Buttons */
+    .btn {
+        padding: 10px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .btn-primary {
+        background: #0073e6;
+        color: white;
+    }
+
+    .btn-primary:hover {
+        background: #005bb5;
+    }
+
+    .btn-secondary {
+        background: #ccc;
+        color: black;
+    }
+
+    .btn-secondary:hover {
+        background: #bbb;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 600px) {
+        .account-container {
+            width: 90%;
+            padding: 15px;
+        }
+
+        .account-container h1 {
+            font-size: 20px;
+        }
+
+        input {
+            font-size: 14px;
+        }
+
+        .btn {
+            font-size: 14px;
+        }
+    }
+</style>

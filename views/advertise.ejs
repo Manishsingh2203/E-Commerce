@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advertise Your Products</title>
+  
+    <nav  class="navbar navbar-expand-lg ">
+        <div class="container-fluid">
+             <!-- Navbar Toggle Button (for Mobile) -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <!-- Navbar Items (Collapsible) -->
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+                <!-- Left Empty Space for Center Alignment -->
+                <div class="flex-grow-1"></div>
+                
+                <!-- Right-Aligned Logo -->
+                <a class="navbar-brand ms-auto" href="/products">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdqfrtvanWDhhAhe07PgTLwQDe2fiAohmyp1GKuVJbzC0wZr6zBDgQv5ZIYnmpfeBpqYI&usqp=CAU" 
+                         alt="Logo" class="d-inline-block align-text-top rounded" 
+                         style="width: 150px; height: 55px; object-fit: cover; margin-left: -1462px; ">
+                </a>
+            </div>
+        </div>
+    </nav>
+      <main>
+        <header>
+        <h1  >Advertise Your Products</h1>
+    </header>
+        <section>
+            <p>Reach millions of customers by advertising your products on our platform.</p>
+            <form action="/submit-advertise" method="POST">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="product">Product Name:</label>
+                <input type="text" id="product" name="product" required>
+                
+                <label for="description">Product Description:</label>
+                <textarea id="description" name="description" rows="4" required></textarea>
+                
+                <label for="price">Price:</label>
+                <input type="number" id="price" name="price" required>
+                
+                <label for="image">Product Image URL:</label>
+                <input type="url" id="image" name="image" required>
+                
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </main>
+    <% layout('layouts/boilerplate') -%>
+</body>
+</html>
+
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f3f3f3;
+    }
+    header {
+        background-color: #232f3e;
+        color: white;
+        padding: 15px;
+        text-align: center;
+        font-size: 24px;
+    }
+    main {
+        max-width: 800px;
+        margin: 20px auto;
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+    label {
+        font-weight: bold;
+        margin-top: 10px;
+    }
+    input, textarea {
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    button {
+        margin-top: 20px;
+        background-color: #ff9900;
+        color: white;
+        border: none;
+        padding: 12px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    button:hover {
+        background-color: #e68a00;
+    }
+    footer {
+        background-color: #232f3e;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        margin-top: 20px;
+    }
+        </style>

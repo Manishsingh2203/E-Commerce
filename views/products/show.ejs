@@ -1,0 +1,242 @@
+<%- include('../partials/navbar') %>
+<% layout('layouts/boilerplate') -%>
+    <section class="container">
+        <%- include('../partials/flash') %>
+        
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+
+
+                    <% if(product.price < 699 || product.price> 1199) { %>
+                        <div class="sale-tag"
+                            style="position: absolute; top: 10px; left: 10px; background-color: red; color: white; padding: 5px; border-radius: 6px;">
+                            Sale
+                        </div>
+                        <% } %>
+
+                        <div class="man">
+                                     
+ 
+<div class="card shadow-sm rounded border-1 mx-auto"
+style="width: 24rem; overflow: hidden; border-color: goldenrod; position: relative;">
+<div class="product-img-container">
+    <img src="<%= product.img %>" class="card-img-top img-fluid"
+    style="object-fit:fill; height: 50vh; margin-top: -20px; " alt="Product Image"   
+    id="mainImage" alt="Product Image">
+    <div id="zoomLens"></div> 
+</div>
+
+
+   
+            <% if(product.price < 699 || product.price> 1199) { %>
+                                        <div class="sale-tag"
+                                            style="position: absolute; top: 10px; left: 10px; background-color: crimson; color: white;  border-radius: 10px;">
+                                            Sale
+                                        </div>
+                                        <% } %>
+
+                                            <div class="card-body text-center">
+                                                <h4 class="card-title font-weight-bold">
+                                                    <%= product.name %>
+                                                </h4>
+                                                <p class="text-muted">
+                                                    <%= product.desc %>
+                                                </p>
+                                                <h5 class="text-danger font-weight-bold">₹ <%= product.price %>
+                                                </h5>
+
+                                                <div class="d-flex justify-content-center gap-2 mt-3">
+                                                    <form action="/payment_gateway/payumoney" method="POST">
+                                                        <button
+                                                            style="background-color:#f78b00; border: 1px solid white;"
+                                                            class="btn text-white px-4 py-2 rounded-pill">Buy
+                                                            Now</button>
+                                                    </form>
+
+                                                    <form action="/user/<%= product._id %>/add" method="POST">
+                                                        <button style="background-color:#EFB21E; border:1px solid white"
+                                                            class="btn text-white px-4 py-2 rounded-pill">Add to
+                                                            Cart</button>
+                                                    </form>
+                                                </div>
+
+                                                <% if(currentUser && currentUser.role==='seller' ) { %>
+                                                    <div  class="d-flex justify-content-center gap-2 mt-3">
+                                                        <a  style="background-color: #006878; border: 1px solid white; "
+                                                            href="/products/<%= product._id %>/edit"
+                                                            class="btn btn-success px-4 py-2 rounded-pill">Edit</a>
+                                                        <form action="/products/<%= product._id %>?_method=DELETE"
+                                                            method="POST">
+                                                            <button
+                                                                style="background-color:#E7362C; border: 1px solid white;"
+                                                                class="btn px-4 py-2 rounded-pill">Delete</button>
+                                                        </form>
+                                                    </div>
+                                                    <% } %>
+                                            </div>
+                                </div>
+                            </div>
+                </div>
+
+
+                <div style="border: 1px solid black; border-radius: 15px; height: 50%;"
+                    class="col-lg-5 mx-auto my-4">
+                    <h2 style="color:#007bff" class="display-6 text-center mb-3">Leave a Review</h2>
+
+                    <form action="/products/<%= product._id %>/review" method="POST">
+                        <fieldset class="starability-basic">
+                            <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="0" checked
+                                aria-label="No rating." />
+                            <input type="radio" id="rate1" name="rating" value="1" />
+                            <label for="rate1" title="Terrible">1 star</label>
+                            <input type="radio" id="rate2" name="rating" value="2" />
+                            <label for="rate2" title="Not good">2 stars</label>
+                            <input type="radio" id="rate3" name="rating" value="3" />
+                            <label for="rate3" title="Average">3 stars</label>
+                            <input type="radio" id="rate4" name="rating" value="4" />
+                            <label for="rate4" title="Very good">4 stars</label>
+                            <input type="radio" id="rate5" name="rating" value="5" />
+                            <label for="rate5" title="Amazing">5 stars</label>
+                        </fieldset>
+
+                        <div class="mb-3">
+                            <label  class="form-label text-dark" for="desc">Your Review 😊</label>
+                            <textarea style="border: 1px solid black;" class="form-control" name="comment" id="desc" rows="3"></textarea>
+                        </div>
+                        <button style="border: 1px solid white;  background-color: #198754 " class="btn btn-success w-50 rounded-pill py-2">Submit
+                            Review</button>
+                    </form>
+
+                    <div class="mt-4">
+                        <% for(let review of product.reviews) { %>
+                            <div style="border: 1px solid black;"  class="card mb-3 shadow-sm">
+                                <div class="card-body">
+                                    <p class="starability-result" data-rating="<%= review.rating %>">
+                                        Rated: <%= review.rating %> stars
+                                    </p>
+                                    <p class="card-text"><%- review.comment %></p>
+                                   
+                                    <form action="/products/<%= product._id %>/review/<%= review._id %>?_method=DELETE"
+                                       
+                                        method="POST">
+                                        <button style="background-color: #dc3545; border: 1px solid white;"
+                                            class="btn btn btn-lg rounded-pill px-3">Delete</button>
+                                    </form>
+                                
+                              
+
+                                </div>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+            </div>
+    
+
+        </section>
+ <style>
+button {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    will-change: transform, box-shadow;
+}
+
+   
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+    animation: bounce 0.4s ease-out;
+}
+
+button:active {
+    transform: scale(0.97);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Bounce animation */
+@keyframes bounce {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.08);
+    }
+    100% {
+        transform: scale(1.05);
+    }
+}
+
+.btn{
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    will-change: transform, box-shadow;
+}
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+    animation: bounce 0.4s ease-out;
+}
+.btn:active{
+    transform: scale(0.97);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.product-img-container {
+    
+    overflow: hidden; 
+    display: inline-block;
+    border-radius: 10px;
+  }
+ 
+  .product-img-container img {
+    transition: transform 0.3s ease-in-out;
+    width: 100%; 
+  }
+
+ 
+
+
+  #zoomLens {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border: 1px solid #000;
+    background-repeat: no-repeat;
+    background-size: 300% 300%;
+ 
+    pointer-events: none;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+    
+ </style>
+
+ 
+
+<script>
+    
+    document.addEventListener("DOMContentLoaded", function () {
+        let mainImage = document.getElementById("mainImage");
+        let zoomLens = document.getElementById("zoomLens");
+
+        mainImage.addEventListener("mousemove", function (event) {
+            zoomLens.style.display = "block";
+
+            let rect = mainImage.getBoundingClientRect();
+            let x = event.clientX - rect.left;
+            let y = event.clientY - rect.top;
+
+            let xPercent = (x / rect.width) * 200;
+            let yPercent = (y / rect.height) * 200;
+
+            zoomLens.style.left = x - 75 + "px"; 
+            zoomLens.style.top = y - 75 + "px";
+            zoomLens.style.backgroundImage = "url('" + mainImage.src + "')";
+            zoomLens.style.backgroundPosition = xPercent + "% " + yPercent + "%";
+        });
+
+        mainImage.addEventListener("mouseleave", function () {
+            zoomLens.style.display = "none";
+        });
+    });
+    
+  
+
+</script>

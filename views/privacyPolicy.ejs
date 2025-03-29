@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | SnapBuy</title>
+    <nav style="background-color: white;" class="navbar navbar-expand-lg ">
+        <div class="container-fluid">
+               <!-- Navbar Toggle Button (for Mobile) -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <!-- Navbar Items (Collapsible) -->
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+                <!-- Left Empty Space for Center Alignment -->
+                <div class="flex-grow-1"></div>
+                
+                <!-- Right-Aligned Logo -->
+                <a class="navbar-brand ms-auto" href="/products">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdqfrtvanWDhhAhe07PgTLwQDe2fiAohmyp1GKuVJbzC0wZr6zBDgQv5ZIYnmpfeBpqYI&usqp=CAU" 
+                         alt="Logo" class="d-inline-block align-text-top rounded" 
+                         style="width: 150px; height: 55px; object-fit: cover; margin-left: -1462px; ">
+                </a>
+            </div>
+        </div>
+    </nav>
+   <%- layout('layouts/boilerplate') -%>
+    <% include('partials/navbar.ejs') %>
+
+    <section class="policy-section">
+        <div class="policy-container">
+            <h1>Privacy Policy</h1>
+            <p>At SnapBuy, we are committed to protecting your privacy and ensuring the security of your personal information.</p>
+
+            <h2>1. Information We Collect</h2>
+            <ul>
+                <li>Personal details such as name, email, and address</li>
+                <li>Payment details (secured and encrypted)</li>
+                <li>Browsing and purchase history to enhance user experience</li>
+            </ul>
+
+            <h2>2. How We Use Your Information</h2>
+            <ul>
+                <li>To process your orders and provide customer service</li>
+                <li>To personalize and improve our services</li>
+                <li>For marketing purposes (with your consent)</li>
+            </ul>
+
+            <h2>3. Data Security</h2>
+            <p>We use advanced security measures, including encryption and secure servers, to protect your data.</p>
+
+            <h2>4. Your Rights</h2>
+            <p>You have the right to access, modify, or delete your personal data. To do so, contact us at <a href="mailto:support@SnapBuy.com">support@SnapBuy.com</a>.</p>
+
+            <h2>5. Cookies & Tracking</h2>
+            <p>We use cookies to enhance your shopping experience. You can manage your preferences in browser settings.</p>
+
+            <h2>6. Contact Us</h2>
+            <p>If you have any concerns, please contact our support team at <a href="support@SnapBuy.com">support@SnapBuy.com</a>.</p>
+        </div>
+    </section>
+
+    <% include('partials/footer.ejs') %>
+
+</body>
+</html>
+
+
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f3f3f3;
+        margin: 0;
+        padding: 0;
+    }
+
+    .policy-container {
+        max-width: 900px;
+        margin: 50px auto;
+    
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1, h2 {
+        color: #232f3e;
+    }
+
+    p {
+        font-size: 16px;
+        color: #333;
+        line-height: 1.6;
+    }
+
+    ul {
+        padding-left: 20px;
+    }
+
+    .policy-container a {
+        color: #ff9900;
+        text-decoration: none;
+    }
+
+    .policy-container a:hover {
+        text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+        .policy-container {
+            width: 90%;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+        }
+    }
+</style>

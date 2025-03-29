@@ -1,0 +1,135 @@
+<% layout('layouts/boilerplate') -%>
+
+ 
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+          <!-- Navbar Toggle Button (for Mobile) -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+     
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+           
+            <div class="flex-grow-1"></div>
+            
+          
+            <a class="navbar-brand ms-auto" href="/products">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdqfrtvanWDhhAhe07PgTLwQDe2fiAohmyp1GKuVJbzC0wZr6zBDgQv5ZIYnmpfeBpqYI&usqp=CAU" 
+                     alt="Logo" class="d-inline-block align-text-top rounded" 
+                     style="width: 120px; height: 50px; object-fit: cover; margin-left: -1470px; ">
+            </a>
+        </div>
+    </div>
+</nav>
+
+<section class="container mt-5">
+    <h1 style="color: #F8E831;" class="display-4 fw-bold text-center">🛒 My Cart</h1> 
+</section>
+
+<% totalAmount = 0; %> 
+
+<div class="container mt-4">
+    <% if (user.cart.length > 0) { %>
+        <div class="row">
+            <div class="col-lg-8">
+                <% for(let item of user.cart) { %>
+                    <% totalAmount += item.price * (item.qty || 1); %> 
+                    <div class="card mb-4 shadow-sm border-0">
+                        <div class="row g-0 align-items-center">
+                           
+                           
+
+                       <div class="col-md-6 d-flex"> 
+                            <img src="<%= item.img %>" class="img-fluid rounded-start" alt="<%= item.name %>" 
+                                style="width: 350px; height: 320px; object-fit: contain;margin-top: -20px; margin-left: 5px ; ">
+                        </div>
+                         
+
+                            <div class="col-md-6">
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold"><%= item.name %></h5>
+                                    <p class="card-text text-muted"><%= item.desc %></p>
+                                    <p class="fw-bold text-danger">₹ <%= item.price %></p>
+                                    <div class="col-md-3 text-center">
+                                        <form action="/cart/<%= item.id %>?_method=DELETE" method="POST">
+                                            <button type="submit" class="btn btn-danger btn-sm ">Remove</button>
+                                        </form>
+                                    </div>
+                                    
+                        
+                                </div>
+                            </div>
+                           <!---->
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+
+            <!-- Order Summary Section -->
+            <div class="col-lg-4">
+                <div class="card shadow-sm p-4">
+                    <h4 class="fw-bold">Order Summary</h4>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Subtotal:</span> <strong>₹ <%= totalAmount %></strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Shipping:</span> <strong>FREE</strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between fw-bold">
+                            <span>Total Amount:</span> <strong>₹ <%= totalAmount %></strong>
+                        </li>
+                    </ul>
+                    <form action="/payment_gateway/payumoney" method="POST">
+                        <input type="hidden" name="amount" value="<%= totalAmount %>"/>
+                        <input type="hidden" name="phone" value="9999999999"/>
+                        <input type="hidden" name="service_provider" value="payu_paisa"/>
+                        <button type="submit" class="btn btn-success btn-lg w-100 mt-3">Proceed to Checkout</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    <% } else { %>
+        <div class="text-center">
+            <h3 class="fw-bold text-muted">Your cart is empty 😢</h3>
+            <a href="/" class="btn btn-primary mt-3">Continue Shopping</a>
+        </div>
+    <% } %>
+</div>
+
+
+<style>
+body {
+    background-color: #146eb4;
+
+}
+.card {
+    background: #FFFFFF; 
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); 
+  
+}
+.btn-primary {
+    background-color: #007BFF; 
+    border: none;
+}
+
+.btn-danger {
+    background-color: #E74C3C; 
+    border: none;
+}
+
+
+p {
+    color: #6C757D;
+}
+
+.navbar{
+    background-color: white;
+}
+.navbar, img{
+   margin-right: 40px;
+}
+
+</style>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account - SnapBuy</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+   
+
+    <div class="account-container mt-5">
+        <div class="profile-card text-center">
+            <img src="https://www.w3schools.com/howto/img_avatar.png" alt="User Avatar" class="rounded-circle" width="80">
+            <h4 class="mt-2 text-capitalize"><%= currentUser.username %></h4>
+            <p class="text-muted"><%= currentUser.email %></p>
+        </div>
+
+        <!-- Tabs -->
+        <ul class="nav nav-tabs mt-4" id="accountTabs">
+            <li class="nav-item">
+                <a class="nav-link active" data-bs-toggle="tab" href="#orders">Your Orders</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#settings">Settings</a>
+            </li>
+        </ul>
+
+        <!-- Tab Content -->
+        <div class="tab-content mt-3">
+            <!-- Orders Section -->
+            <div class="tab-pane fade show active" id="orders">
+                <div class="bg-white p-3 rounded shadow-sm">
+                    <h5>Your Recent Orders</h5>
+                    <% if (currentUser.orders.length > 0) { %>
+                        <ul class="list-group">
+                            <% currentUser.orders.forEach(order => { %>
+                                <li class="list-group-item">
+                                    <strong>Order #<%= order.id %></strong> - <%= order.items.length %> items 
+                                    <span class="float-end text-success">₹<%= order.total %></span>
+                                </li>
+                            <% }); %>
+                        </ul>
+                    <% } else { %>
+                        <p class="text-muted">No orders placed yet.</p>
+                    <% } %>
+                </div>
+            </div>
+
+            <!-- Settings Section -->
+            <div class="tab-pane fade" id="settings">
+                <div class="bg-white p-3 rounded shadow-sm">
+                    <h5>Update Profile</h5>
+                    <form action="/update-profile" method="POST">
+                        <div class="mb-3">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" name="username" class="form-control" value="<%= currentUser.username %>" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" name="email" class="form-control" value="<%= currentUser.email %>" required>
+                        </div>
+                        <button type="submit" class="btn btn-warning">Save Changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Logout Button -->
+        <a href="/logout" class="logout-btn">
+            <i class="fas fa-sign-out-alt"></i> Logout
+        </a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+<style>
+    body {
+        background-color: #f3f3f3;
+    }
+    .account-container {
+        max-width: 900px;
+        margin: auto;
+        padding: 20px;
+    }
+    .profile-card {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .nav-tabs .nav-link {
+        font-weight: bold;
+        color: #232f3e;
+    }
+    .nav-tabs .nav-link.active {
+        background-color: #febd69;
+        color: white;
+        border-radius: 5px;
+    }
+    .logout-btn {
+        background-color: #d9534f;
+        color: white;
+        font-weight: bold;
+        padding: 10px;
+        border-radius: 5px;
+        text-align: center;
+        display: block;
+        margin-top: 15px;
+    }
+    .logout-btn:hover {
+        background-color: #c9302c;
+    }
+</style>

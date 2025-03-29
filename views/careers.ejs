@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers | SnapBuy</title>
+    
+    <nav style="background-color: white" class="navbar navbar-expand-lg ">
+        <div class="container-fluid">
+             <!-- Navbar Toggle Button (for Mobile) -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <!-- Navbar Items (Collapsible) -->
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+                <!-- Left Empty Space for Center Alignment -->
+                <div class="flex-grow-1"></div>
+                
+                <!-- Right-Aligned Logo -->
+                <a class="navbar-brand ms-auto" href="/products">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdqfrtvanWDhhAhe07PgTLwQDe2fiAohmyp1GKuVJbzC0wZr6zBDgQv5ZIYnmpfeBpqYI&usqp=CAU" 
+                         alt="Logo" class="d-inline-block align-text-top rounded" 
+                         style="width: 150px; height: 55px; object-fit: cover; margin-left: -1462px; ">
+                </a>
+            </div>
+        </div>
+    </nav>
+   
+
+   
+
+    <%- layout('layouts/boilerplate') -%>
+   
+
+    <section class="careers">
+        <div class="container">
+            <h1>Join Our Team at SnapBuy 🚀</h1>
+            <p>We are always looking for talented individuals to join our growing team! Check out our latest job openings below.</p>
+
+            <h2>📢 Job Openings</h2>
+
+            <div class="job-listings">
+                <div class="job-listing">
+                    <h3>Frontend Developer</h3>
+                    <p>We are looking for an experienced Frontend Developer with expertise in HTML, CSS, and JavaScript.</p>
+                    <button class="btn">Apply Now</button>
+                </div>
+
+                <div class="job-listing">
+                    <h3>Customer Support Executive</h3>
+                    <p>Help our customers by answering their queries and resolving issues efficiently.</p>
+                    <button class="btn">Apply Now</button>
+                </div>
+
+                <div class="job-listing">
+                    <h3>Marketing Specialist</h3>
+                    <p>Join our marketing team to create brand awareness and drive online sales.</p>
+                    <button class="btn">Apply Now</button>
+                </div>
+            </div>
+
+            <h2>📩 Submit Your Application</h2>
+            <form action="/careers/apply" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required />
+                <input type="email" name="email" placeholder="Your Email" required />
+                <textarea name="message" placeholder="Why do you want to work with us?" required></textarea>
+                <button type="submit" class="btn">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <% include('partials/footer.ejs') %>
+
+</body>
+</html>
+
+
+
+<style>
+    body {
+        font-family: "Poppins", sans-serif;
+        background-color: #f8f9fa;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        max-width: 900px;
+        margin: auto;
+       /* background: #fff; */
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        animation: fadeIn 0.5s ease-in-out;
+    }
+
+    h1, h2 {
+        color: #232f3e;
+        margin-bottom: 15px;
+    }
+
+    p {
+        font-size: 16px;
+        color: #555;
+        line-height: 1.6;
+        text-align: left;
+    }
+
+    .job-listings {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    .job-listing {
+        background: #fff;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .job-listing:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        margin-top: 10px;
+        background: #ff9900;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        transition: background 0.3s ease-in-out;
+    }
+
+    .btn:hover {
+        background: #e68a00;
+    }
+
+    form {
+        text-align: left;
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-top: 20px;
+    }
+
+    input, textarea {
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    @media (max-width: 768px) {
+        .container {
+            width: 90%;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+        }
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>

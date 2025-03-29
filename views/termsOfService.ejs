@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service | SnapBuy</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+
+    <nav style="background-color: white;" class="navbar navbar-expand-lg ">
+        <div class="container-fluid">
+             <!-- Navbar Toggle Button (for Mobile) -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <!-- Navbar Items (Collapsible) -->
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+                <!-- Left Empty Space for Center Alignment -->
+                <div class="flex-grow-1"></div>
+                
+                <!-- Right-Aligned Logo -->
+                <a class="navbar-brand ms-auto" href="/products">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdqfrtvanWDhhAhe07PgTLwQDe2fiAohmyp1GKuVJbzC0wZr6zBDgQv5ZIYnmpfeBpqYI&usqp=CAU" 
+                         alt="Logo" class="d-inline-block align-text-top rounded" 
+                         style="width: 150px; height: 55px; object-fit: cover; margin-left: -1495px; ">
+                </a>
+            </div>
+        </div>
+    </nav>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .policy-section {
+            padding: 40px 15px;
+         /*   background: white; */
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: #232f3e;
+        }
+
+        p {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .policy-section {
+                padding: 30px 10px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            p {
+                font-size: 14px;
+            }
+        }
+
+
+       .navbar{
+        top: -119px;
+       } 
+    </style>
+</head>
+<body>
+    <%- layout('layouts/boilerplate') -%>
+    <% include('partials/navbar.ejs') %>
+
+    <div class="container mt-4">
+        <div class="policy-section p-4">
+            <h1 class="text-center">Terms of Service</h1>
+            <p class="text-center text-muted">Last updated: March 2025</p>
+            <hr>
+
+            <h2>1. Account Responsibilities</h2>
+            <p>Users must ensure their account security and are responsible for all activities under their account.</p>
+
+            <h2>2. Prohibited Activities</h2>
+            <p>Any fraudulent, illegal, or abusive activities are strictly prohibited on our platform.</p>
+
+            <h2>3. Termination</h2>
+            <p>We reserve the right to suspend or terminate accounts that violate our terms.</p>
+
+            <h2>4. Changes to Terms</h2>
+            <p>SnapBuy reserves the right to update the Terms of Service at any time.</p>
+
+            <h2>5. Contact Us</h2>
+            <p>If you have any questions, feel free to contact us at <a href="mailto:support@SnapBuy.com">support@SnapBuy.com</a>.</p>
+        </div>
+    </div>
+
+    <% include('partials/footer.ejs') %>
+
+</body>
+</html>

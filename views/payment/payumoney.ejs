@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PayU Money Payment | SnapBuy</title>
+ <div class="container">
+        <h1>💳 PayU Money Payment</h1>
+        <img src="https://cdn.freelogovectors.net/wp-content/uploads/2019/02/payumoney-logo.png" alt="PayU Money" class="payment-logo">
+        <p>Proceed with your payment securely using PayU Money.</p>
+        
+        <form action="/payment_gateway/payumoney/process" method="POST">
+            <button type="submit">Proceed to Pay</button>
+        </form>
+        
+        <a href="/" class="back-link">← Back to Home</a>
+    </div>
+
+</body>
+</html>
+
+<style>
+        
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .container {
+        background: white;
+        width: 380px;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 24px;
+        color: #333;
+        margin-bottom: 15px;
+    }
+
+    p {
+        font-size: 16px;
+        color: #666;
+        margin-bottom: 20px;
+    }
+
+    .payment-logo {
+        width: 150px;
+        margin-bottom: 15px;
+    }
+
+    form {
+        margin-top: 10px;
+    }
+
+    button {
+        width: 100%;
+        background: #ff9900;
+        color: white;
+        border: none;
+        padding: 12px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 6px;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: #e68a00;
+    }
+
+    .back-link {
+        display: block;
+        margin-top: 15px;
+        font-size: 14px;
+        color: #0066c0;
+        text-decoration: none;
+    }
+
+    .back-link:hover {
+        text-decoration: underline;
+    }
+</style>

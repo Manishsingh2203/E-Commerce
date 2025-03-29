@@ -1,0 +1,140 @@
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg" style="background-color: white;">
+    <div class="container-fluid">
+    
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+        <a class="navbar-brand ms-auto" href="/products">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdqfrtvanWDhhAhe07PgTLwQDe2fiAohmyp1GKuVJbzC0wZr6zBDgQv5ZIYnmpfeBpqYI&usqp=CAU" 
+               alt="Logo" class="rounded" style="width: 150px; height: 55px; margin-left: -1480px; object-fit: cover;">
+        </a>
+      </div>
+    </div>
+  </nav>
+  <% layout('layouts/boilerplate') -%>
+<div class="login-container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="card p-4 shadow-lg rounded-lg">
+        <h2 class="text-center mb-4">Login</h2>
+
+          
+        <form action="/login" method="POST">
+            <div class="mb-3">
+                <label class="form-label" for="username">Username</label>
+                <input class="form-control" type="text" name="username" id="username" placeholder="Enter your username" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="password">Password</label>
+                <input class="form-control" type="password" name="password" id="password" placeholder="Enter your password" required>
+            </div>
+            <button type="submit" class="btn btn-warning w-100">Login</button>
+            
+            <div class="text-center mt-3">
+                <a href="/forgot-password" class="text-decoration-none">Forgot Password?</a>
+            </div>
+            
+        </form>
+
+          
+
+            <p class="text-center mt-3">
+                By continuing, you agree to SnapBuy's 
+                <a href="/conditions-of-use" class="text-decoration-none">Conditions of Use</a> and 
+                <a href="/privacy-policy" class="text-decoration-none">Privacy Notice</a>.
+            </p>
+
+            <hr>
+
+            <p class="text-center mt-3">
+                <a href="/register" class="btn btn-light border w-100">Create your SnapBuy account</a>
+            </p>
+        </form>
+    </div>
+</div>
+
+<style>
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+
+.navbar {
+    padding: 10px 15px;
+}
+
+
+.login-container {
+    padding: 20px;
+   margin-top: -120px;
+ 
+
+}
+
+
+.card {
+    max-width: 350px;
+    background-color: #fff; 
+    border: 1px solid #ddd; 
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+}
+
+
+.form-label {
+    font-size: 14px;
+    color: #111; 
+}
+
+
+.form-control {
+    border-radius: 4px;
+    border: 1px solid #a6a6a6;
+    padding: 10px;
+}
+
+
+.btn-warning {
+    background-color: #f0c14b;
+    border-color: #a88734;
+    color: #111;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.btn-warning:hover {
+    background-color: #ddb347; 
+}
+
+
+.btn-light {
+    background-color: #f3f3f3;
+    color: #111;
+}
+
+.btn-light:hover {
+    background-color: #e2e2e2;
+}
+
+
+a {
+    color: #0066c0; 
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+@media (max-width: 768px) {
+    .card {
+        padding: 15px;
+    }
+}
+</style>
+

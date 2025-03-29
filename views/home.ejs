@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SnapBuy</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body class="d-flex text-center text-white bg-dark">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <video autoplay muted loop id="background-video">
+           <source src="https://cdn.shopify.com/static/videos/identity/merchant-moving-bg.mp4" type="video/mp4">  
+           Your browser does not support the video tag.
+        </video>
+        <div id="video-overlay"></div>
+        <header class="mb-auto">
+            <div>
+                <nav class="nav nav-masthead justify-content-center">
+                    <a class="nav-link active" href="#"><i class="fa-solid fa-house"></i> Home</a>
+                    <a class="nav-link active" href="/products"><i class="fa-solid fa-store"></i> Products</a>
+                    <% if (!currentUser) { %>
+                        <a class="nav-link active" href="/login"><i class="fas fa-sign-in-alt"></i> Login</a>
+                        <a class="nav-link active" href="/register"><i class="fas fa-user-plus"></i> Register</a>
+                    <% } else { %>
+                        <a class="nav-link active" href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    <% } %>
+                </nav>
+            </div>
+        </header>
+        <main>
+            <h1>Welcome to SnapBuy.Com!</h1>
+            <h4>
+                ✨ Discover endless possibilities with SnapBuy! <br>
+                Shop the latest trends, find unbeatable deals, and showcase your favorites. 
+                Your perfect purchase is just a click away! 🛍️🚀
+            </h4>
+            <a id="cta-button" href="/products">
+                <i class="fas fa-shopping-cart"></i> View Products
+            </a>
+        </main>
+        <footer class="mt-auto text-white-50">
+            <p>All Rights Reserved &copy; 2025</p>
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+<style>
+    
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to bottom right, #1c1e22, #2d3136); 
+}
+
+/* Background Video */
+#background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; 
+    filter: brightness(35%);
+}
+
+#video-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
+}
+
+/* Header Styles */
+header .nav-link {
+    color: white;
+    font-weight: bold;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+header .nav-link:hover {
+    color: #ff9900;
+}
+
+/* Main Section */
+main {
+    text-align: center;
+    padding: 2rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 16px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    max-width: 700px;
+    margin: auto;
+}
+
+main h1 {
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+main h4 {
+    font-size: 1.2rem;
+    color: white;
+    margin-bottom: 1.5rem;
+}
+
+#cta-button {
+    display: inline-block;
+    background-color: #ff4500;
+    color: white;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#cta-button:hover {
+    background-color: crimson;
+    transform: scale(1.05);
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #e9ecef;
+}
+
+
+@media (max-width: 768px) {
+    header .nav {
+        flex-direction: column;
+    }
+
+    main {
+        max-width: 90%;
+        padding: 1.5rem;
+    }
+
+    main h1 {
+        font-size: 2rem;
+    }
+
+    main h4 {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    header .nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    main h1 {
+        font-size: 1.8rem;
+    }
+
+    main h4 {
+        font-size: 0.9rem;
+    }
+
+    #cta-button {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+    }
+}
+
+</style>
+

@@ -1,0 +1,279 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | SnapBuy</title>
+
+    <nav style="background-color: white; margin-top: -120px; " class="navbar navbar-expand-lg ">
+        <div class="container-fluid">
+            
+          
+    
+            <!-- Navbar Toggle Button (for Mobile) -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <!-- Navbar Items (Collapsible) -->
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+               
+                <div class="flex-grow-1"></div>
+                
+              
+                <a class="navbar-brand ms-auto" href="/products">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdqfrtvanWDhhAhe07PgTLwQDe2fiAohmyp1GKuVJbzC0wZr6zBDgQv5ZIYnmpfeBpqYI&usqp=CAU" 
+                         alt="Logo" class="d-inline-block align-text-top rounded" 
+                         style="width: 150px; height: 55px; object-fit: cover; margin-left: -1492px; ">
+                </a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Bootstrap for Responsiveness -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+   
+
+</head>
+<body>
+    <%- layout('layouts/boilerplate') -%>
+   
+    <% include('partials/navbar.ejs') %>
+
+    <!-- About Us Section -->
+    <section style="margin-top: -50px;"  class="about-section">
+        <div class="container">
+            <h1>About SnapBuy</h1>
+            <p>SnapBuy is your one-stop online shopping destination for trendy fashion, electronics, accessories, and more. Our mission is to provide high-quality products at affordable prices, ensuring a seamless shopping experience.</p>
+        </div>
+    </section>
+
+    <!-- Animated Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <div class="stats-box">
+                        <i class="fa-solid fa-users"></i> <span id="customers">0</span>+ Happy Customers
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stats-box">
+                        <i class="fa-solid fa-box"></i> <span id="products">0</span>+ Products Available
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stats-box">
+                        <i class="fa-solid fa-truck-fast"></i> <span id="deliveries">0</span>+ Deliveries Completed
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <h2>Meet Our Team</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="team-card">
+                        <img style="height: 150px;" src="https://scontent.fdel27-3.fna.fbcdn.net/v/t39.30808-6/438205996_1906780276425422_5727300051023641335_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=t5PJyLedrZ8Q7kNvgGR6Wq9&_nc_oc=AdgZdnvvGq4Tz2yWfh-8M92aDnny9aMcoHW-B6v0xh0rx-8rkujSjeRVBDfy_ClfHv72JYy1eIppa0jMxjxlJ5Xj&_nc_zt=23&_nc_ht=scontent.fdel27-3.fna&_nc_gid=2P7bKrbYiW3Ov5o8fMqUXg&oh=00_AYEG7oAOXT679DY8ypTIKyVuv-NfV8Y-sXifOtT8_eosuw&oe=67DF702A" class="rounded-circle" alt="Team Member">
+                        <h3>Dhirendra Singh</h3>
+                        <p>CEO & Founder</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="team-card">
+                        <img style="height: 150px;" src="https://media.licdn.com/dms/image/v2/D4D03AQErthY7TdS_iQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1692425390504?e=1747872000&v=beta&t=pV-a0LGgC3tZId1HS27ZA5wQdZKzkUxNeadh7uY87VE" class="rounded-circle" alt="Team Member">
+                        <h3>Rahul Singh</h3>
+                        <p>Marketing Head</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="team-card">
+                        <img style="height: 150px;" src="https://media.licdn.com/dms/image/v2/D4E03AQG5NdkEccGvoA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1731490229247?e=1747872000&v=beta&t=dMDJtMtRTu5B2IT4ri5HeLP8SgF1vWbJzebdjj1_nRc" class="rounded-circle" alt="Team Member">
+                        <h3>Manish Singh</h3>
+                        <p>Operations Manager</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonial-section">
+        <div class="container">
+            <h2>What Our Customers Say</h2>
+            <div class="testimonial-box">
+                <p>"SnapBuy has completely changed my online shopping experience. Fast delivery and amazing customer service!"</p>
+                <p>- Happy Customer😍</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Join SnapBuy Today!</h2>
+            <p>Get the best deals, fastest delivery, and amazing support.</p>
+            <a href="/register" class="cta-btn">Sign Up Now </a>
+            <br><br>
+            <h2>Contact Us ☎</h2>
+            <p>If you have any questions, feel free to reach out:</p>
+            <p> ✉ Email: support@SnapBuy.com</p>
+            <p>📞Phone: +1-234-567-890</p>
+        
+        </div>
+    </section>
+
+    <% include('partials/footer.ejs') %>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Animated Counter
+        function animateCounter(id, target) {
+            let count = 0;
+            let interval = setInterval(() => {
+                if (count < target) {
+                    count += Math.ceil(target / 50);
+                    document.getElementById(id).innerText = count;
+                } else {
+                    document.getElementById(id).innerText = target;
+                    clearInterval(interval);
+                }
+            }, 50);
+        }
+
+        window.onload = function() {
+            animateCounter("customers", 5000);
+            animateCounter("products", 1200);
+            animateCounter("deliveries", 3000);
+        };
+    </script>
+
+</body>
+</html>
+
+<style>
+    
+    .about-section {
+        padding: 60px 20px;
+        background: linear-gradient(to right, #f8f8f8, #e3e6e6);
+        text-align: center;
+    }
+
+    .about-section .container {
+        max-width: 900px;
+        margin: auto;
+    }
+
+    .about-section h1 {
+        font-size: 36px;
+        font-weight: bold;
+        color: #232f3e;
+        margin-bottom: 20px;
+    }
+
+    .about-section p {
+        font-size: 18px;
+        color: #555;
+        line-height: 1.8;
+    }
+
+    .about-section h2 {
+        margin-top: 30px;
+        font-size: 26px;
+        font-weight: bold;
+        color: #37475a;
+    }
+
+    .about-section ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .about-section ul li {
+        font-size: 18px;
+        margin: 10px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .about-section ul li i {
+        color: #ff9900;
+        font-size: 22px;
+    }
+
+    /* Animated Stats Section */
+    .stats-section {
+        background-color: #232f3e;
+        color: white;
+        padding: 50px 20px;
+        text-align: center;
+    }
+
+    .stats-box {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    /* Team Section */
+    .team-section {
+        padding: 60px 20px;
+        text-align: center;
+    }
+
+    .team-card {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        transition: transform 0.3s ease-in-out;
+        
+    }
+
+    .team-card:hover {
+        transform: translateY(-5px);
+    }
+
+    /* Testimonials */
+    .testimonial-section {
+        background-color: #f3f3f3;
+        padding: 50px 20px;
+    }
+
+    .testimonial-box {
+        text-align: center;
+        max-width: 800px;
+        margin: auto;
+        font-style: italic;
+    }
+
+    /* Call to Action */
+    .cta-section {
+        text-align: center;
+        padding: 50px 20px;
+    }
+
+    .cta-btn {
+        background-color:#ff9900;  
+        color: white;
+        padding: 10px 20px;
+        font-size: 18px;
+        border-radius: 5px;
+        transition: 0.3s;
+    }
+
+    .cta-btn:hover {
+        background-color: #ff7700;
+    }
+
+</style>

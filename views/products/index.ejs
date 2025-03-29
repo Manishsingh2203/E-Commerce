@@ -1,0 +1,374 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<%- include('../partials/navbar') %>
+<% layout('layouts/boilerplate') -%>
+
+<div class="sale-banner-container">
+  <div class="sale-banner-slider">
+      <div class="banner-item">🔥 SnapBuy Sale is Live! Exclusive deals available! 🛒</div>
+      <div class="banner-item">🎉 Grab the Best Deals Now! Limited Time Only! 💥</div>
+      <div class="banner-item">⚡ Flash Sale: Up to 70% OFF on Electronics! ⏳</div>
+      <div class="banner-item">🛍️ Buy 1 Get 1 Free on Select Fashion Items! 👕👗</div>
+      <div class="banner-item">🚚 Free Shipping on Orders Above Rs. 999! 📦</div>
+      <div class="banner-item">💳 Extra 10% Off on Card Payments! Apply Now! 💰</div>
+      <div class="banner-item">🎧 Mega Discounts on Headphones & Speakers! 🔊</div>
+      <div class="banner-item">📱 Best Deals on Smartphones – Hurry Up! 🚀</div>
+      <div class="banner-item">👞 Flat 50% OFF on Branded Footwear! 👠</div>
+      <div class="banner-item">🖥️ Get Special Offers on Laptops & Accessories! 💻</div>
+  </div>
+</div>
+
+<div class="brand-carousel">
+  <h2 style="color: darkblue;" class="carousel-title">Men's Wear Brands in our Store</h2>
+  <div class="carousel-container">
+   
+    <button class="carousel-btn prev-btn">&#8249;</button>
+
+ 
+    <div class="carousel-track-wrapper">
+      <div class="carousel-track">
+        <img src="https://dressland.co.in/wp-content/uploads/2022/08/1010944_651814621520036_298330795_n-150x150.png" alt="Brand 1">
+        <img src="https://dressland.co.in/wp-content/uploads/2022/08/11082488_403478886490191_8359052515899778339_o-150x150.jpg" alt="Brand 2">
+        <img src="https://dressland.co.in/wp-content/uploads/2022/08/92786889_3329891437025761_7703441861658017792_n-150x150.jpg" alt="Brand 3">
+        <img src="https://dressland.co.in/wp-content/uploads/2022/08/275733476_10158868251785686_2686855737186314887_n-150x150.jpg" alt="Brand 4">
+        <img src="https://dressland.co.in/wp-content/uploads/2022/08/download-1-150x150.png" alt="Brand 5">
+        <img src="https://dressland.co.in/wp-content/uploads/2022/08/download-150x150.png" alt="Brand 6">
+        <img src="https://dressland.co.in/wp-content/uploads/2022/09/allen-solly-150x150.png" alt="Brand 7">
+        <img src="https://dressland.co.in/wp-content/uploads/2022/08/Arrow-150x150.png" alt="Brand 8">
+        <img src="https://dressland.co.in/wp-content/uploads/2022/08/download-1-150x150.png" alt="Brand 9">
+        <img src="https://dressland.co.in/wp-content/uploads/2022/08/1010944_651814621520036_298330795_n-150x150.png" alt="Brand 10">
+        <img src="https://dressland.co.in/wp-content/uploads/2022/09/allen-solly-150x150.png" alt="Brand 11">
+        <img src="https://dressland.co.in/wp-content/uploads/2022/08/11082488_403478886490191_8359052515899778339_o-150x150.jpg" alt="Brand 12">
+        <img src="https://dressland.co.in/wp-content/uploads/2022/08/download-150x150.png" alt="Brand 13">
+        <img src="https://dressland.co.in/wp-content/uploads/2022/08/92786889_3329891437025761_7703441861658017792_n-150x150.jpg" alt="Brand 14">
+        <img src="https://dressland.co.in/wp-content/uploads/2022/08/275733476_10158868251785686_2686855737186314887_n-150x150.jpg" alt="Brand 15">
+      </div>
+    </div>
+ <button class="carousel-btn next-btn">&#8250;</button>
+  </div>
+</div>
+
+  <section class="container">
+  <%- include('../partials/flash') %> 
+
+  
+  <div class="products">
+   
+    <% for(let product of products) { %>
+      <div class="card">
+        
+        
+        <% if(product.price <= 959 || product.price > 2599) { %>
+          <div class="sale-tag">Sale</div>
+        <% } %>
+        
+        <img style="height: 350px; width: 100%;" src="<%= product.img %>" alt="item image">
+     <div class="card-body">
+          <h5 class="card-title">
+            <span><%= product.name %></span>
+            <button class="like-btn" product-id="<%= product._id %>">
+              <% if(currentUser && currentUser.wishList.includes(product._id)) { %>
+                <i class="fas fa-heart"></i>
+              <% } else { %>
+                <i class="far fa-heart"></i>
+              <% } %>
+            </button>
+          </h5>
+          
+          <p class="card-text"><%= product.desc %></p>
+
+        
+          <% if(product.reviews.length) { %>
+            <p class="text-muted"><%= product.avgRating %> ★ | <%= product.reviews.length %>&nbsp;<span class="best-color">reviews</span></p>
+          <% } else { %>
+            <p class="text-muted">No reviews</p>
+          <% } %>
+          <p class="price">
+            <% if(product.price <= 959) { %> 
+              <span class="discount">(10% OFF)</span>
+              <span class="original-price">Rs.<%= Math.round(product.price / 0.9).toString().replace(/\d(?=(\d{3})+\b)/g, '$&,') %></span>
+              
+            <% } %>
+            
+            <% if(product.price > 2599) { %> 
+              <span class="discount">(50% OFF)</span>
+              <span class="original-price">Rs.<%= Math.round(product.price * 2).toString().replace(/\d(?=(\d{3})+\b)/g, '$&,') %></span>
+
+            <% } %>
+          
+          
+           &nbsp; Rs.<%= Math.round(product.price).toString().replace(/\d(?=(\d{3})+\b)/g, '$&,') %>
+
+
+          </p>
+          
+          
+      
+          <a style="color: white;" href="/products/<%= product._id %>" class="btn gold-button show-btn">Quick Look</a>
+        </div>
+      </div>
+    <% } %>
+  </div>
+
+  <a href="/all-products" class="view-all-btn">View All Products</a>
+
+  
+  
+
+</section>
+
+<style>
+
+ .sale-banner-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    height: 50px; 
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    margin-top: -69px;
+    background: linear-gradient(90deg, #ff9900, #ff4500); 
+}
+
+
+
+.view-all-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px auto;
+    padding: 12px 24px;
+    background: #ff9900; 
+    color: #111; 
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 18px;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    width: fit-content;
+    
+}
+
+.view-all-btn:hover {
+    background: #e68a00; 
+    transform: scale(1.05);
+    color:white;
+}
+     
+.sale-banner-slider {
+    display: flex;
+    width:100%;
+    animation: slideBanner 20s ease-in-out infinite;
+}
+
+
+
+.banner-item {
+    min-width: 100%;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 22px;
+    padding: 10px 0;
+    transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+
+@keyframes slideBanner {
+    0%, 16% { transform: translateX(0%); }
+    20%, 36% { transform: translateX(-100%); }
+    40%, 56% { transform: translateX(-200%); }
+    60%, 76% { transform: translateX(-300%); }
+    80%, 96% { transform: translateX(-400%); }
+    100% { transform: translateX(-500%); }
+}
+
+
+
+@keyframes colorChange {
+    0%, 16% { background: linear-gradient(90deg, #ff9900, #ff4500); }
+    20%, 36% { background: linear-gradient(90deg, #00c9ff, #92fe9d); }
+    40%, 56% { background: linear-gradient(90deg, #ff758c, #ff7eb3); } 
+    60%, 76% { background: linear-gradient(90deg, #ffcc00, #ff6600); } 
+    80%, 96% { background: linear-gradient(90deg, #8360c3, #2ebf91); } 
+    100% { background: linear-gradient(90deg, #ff416c, #ff4b2b); } 
+}
+
+.sale-banner-container {
+    animation: colorChange 20s ease-in-out infinite;
+}
+
+
+@media (max-width: 768px) {
+    .banner-item {
+        font-size: 14px;  
+    }
+}
+
+@media (max-width: 480px) {
+    .banner-item {
+        font-size: 12px;  
+    }
+}
+
+  .brand-carousel {
+    text-align: center;
+   /* margin: 20px 0;*/
+    width: 92%;
+    margin-left: 50px;
+    
+  }
+
+  .carousel-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+  }
+
+  .carousel-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .carousel-track-wrapper {
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .carousel-track {
+    display: flex;
+    transition: transform 0.4s ease-in-out;
+    will-change: transform;
+  }
+
+  .carousel-track img {
+    flex-shrink: 0;
+    width: 150px;
+    height: 150px;
+    margin: 0 5px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 10;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    user-select: none;
+  }
+
+  .prev-btn {
+    left: 0;
+  }
+
+  .next-btn {
+    right: 0;
+  }
+
+  .carousel-btn:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  .show-btn {
+  padding: 10px 20px;
+  width: 90%;
+  margin: auto;
+  border-radius: 15px;
+ border-color: black;
+  transition: all 0.4s ease;
+  background-color:#008080 ;
+
+}
+
+
+.show-btn:hover {
+  background-color: #800020 ;
+  color: white;
+  transform: scale(1.1); 
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); 
+  border: 2px solid black;
+ 
+  
+}
+
+</style>
+
+
+<script>
+  
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible'); 
+        observer.unobserve(entry.target);  
+      }
+    });
+  }, {
+    threshold: 0.5,
+  });
+  
+  // Target all product cards
+  document.querySelectorAll('.card').forEach(card => {
+    observer.observe(card);  
+  });
+  
+ document.addEventListener("DOMContentLoaded", () => {
+    const track = document.querySelector(".carousel-track");
+    const prevButton = document.querySelector(".prev-btn");
+    const nextButton = document.querySelector(".next-btn");
+
+    const slideWidth = track.querySelector("img").clientWidth + 10; 
+    let currentIndex = 0;
+
+    const moveToSlide = (index) => {
+      track.style.transition = "transform 0.4s ease-in-out";
+      track.style.transform = `translateX(-${slideWidth * index}px)`;
+    };
+
+    const autoMove = () => {
+      currentIndex++;
+      if (currentIndex >= track.children.length) {
+        currentIndex = 0; // Loop back to the first image
+      }
+      moveToSlide(currentIndex);
+    };
+
+    // Start auto-moving the carousel every 1 second
+    const autoMoveInterval = setInterval(autoMove, 1000);
+
+   
+    nextButton.addEventListener("click", () => {
+      clearInterval(autoMoveInterval); 
+      autoMove();
+    });
+
+    prevButton.addEventListener("click", () => {
+      clearInterval(autoMoveInterval); 
+      currentIndex--;
+      if (currentIndex < 0) {
+        currentIndex = track.children.length - 1; 
+      }
+      moveToSlide(currentIndex);
+    });
+  });
+
+</script>
+
+<script src="/js/common.js"></script>
+
